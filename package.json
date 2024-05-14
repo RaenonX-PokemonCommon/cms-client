@@ -3,6 +3,7 @@
   "description": "JS / TS client for Strapi Rest API",
   "packageManager": "yarn@4.2.2",
   "version": "1.0.0",
+  "private": true,
   "author": "Karthikeyan Mariappan",
   "repository": {
     "type": "git",
@@ -24,9 +25,6 @@
     "dist",
     "src"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "exports": {
     ".": {
       "require": {
