@@ -1,0 +1,10 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+eol=lf
+
+# Ignore all differences in line endings
+*        -crlf
+
+# Treat yarn as binary files
+/.yarn/releases/** binary
+/.yarn/plugins/** binary

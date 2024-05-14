@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "yarn: build",
+      "detail": "Builds the Next.js website.",
+      "type": "process",
+      "command": "yarn",
+      "args": ["build"],
+      "isBackground": true,
+      "problemMatcher": [
+        "$tsc-watch",
+        "$node-sass",
+        {
+          "owner": "typescript",
+          "source": "Typescript",
+          "fileLocation": ["relative", "${workspaceRoot}"],
+          "applyTo": "allDocuments",
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "^(▲ Next.js)",
+            "endsPattern": "^(✓ Ready in (.*)s)$"
+          },
+          "pattern": [
+            {
+              "regexp": "(ERROR|WARNING)\\(TypeScript\\)  (.*)",
+              "severity": 1,
+              "message": 2
+            },
+            {
+              "regexp": "^ FILE  (.*):(\\d*):(\\d*)$",
+              "file": 1,
+              "line": 2,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "owner": "eslint",
+          "source": "ESLint",
+          "fileLocation": "relative",
+          "applyTo": "allDocuments",
+          "background": {
+            "activeOnStart": true
+            // "beginsPattern": "sd",
+            // "endsPattern": " > "
+          },
+          "pattern": [
+            {
+              "regexp": "^ (ERROR|WARNING)\\(ESLint\\)  (.*)$",
+              "severity": 1,
+              "message": 2
+            },
+            {
+              "regexp": "^ FILE  (.*):(\\d*):(\\d*)$",
+              "file": 1,
+              "line": 2,
+              "column": 3
+            }
+          ]
+        }
+      ],
+      "presentation": {
+        "group": "dev"
+      }
+    },
+  ]
+}

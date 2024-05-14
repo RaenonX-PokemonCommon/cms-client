@@ -1,0 +1,31 @@
+{
+  "editor.formatOnSaveMode": "file",
+
+  // Prettier settings - runs with "source.formatDocument"
+  "prettier.configPath": ".prettierrc",
+  "prettier.ignorePath": ".prettierignore",
+
+  // ESLint settings - runs with "source.fixAll.eslint"
+  "eslint.format.enable": true,
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+  ],
+
+  // Lock VSCode typescript version to project typescript
+  "typescript.check.npmIsInstalled": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+}
