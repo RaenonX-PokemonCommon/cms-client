@@ -13,6 +13,9 @@ node_modules
 !.yarn/sdks
 !.yarn/versions
 
+# Exclude yarn.lock since Dependencies will be locked in pks-ui-core.
+yarn.lock
+
 # Production
 dist
 
