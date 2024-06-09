@@ -1,0 +1,51 @@
+# Doc: https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: sunday
+      time: "20:00"
+      timezone: America/Chicago
+    # Commit / issues / PR related
+    assignees:
+      - RaenonX
+    commit-message:
+      prefix: "Bumped dependencies"
+      include: "scope"
+    groups:
+      dependencies-dev:
+        dependency-type: development
+        patterns:
+          # All dependencies
+          - "*"
+        update-types:
+          - major
+          - minor
+          - patch
+      dependencies-main:
+        dependency-type: production
+        patterns:
+          # All dependencies
+          - "*"
+        update-types:
+          - major
+          - minor
+          - patch
+    ignore:
+      # `pixi.js` calls, especially `pixi-spine` only support `pixi` v7.
+      - dependency-name: "pixi.js"
+        update-types:
+          - "version-update:semver-major"
+      # `eslint` v9 not supported by next.js yet - wait for the support first to remove this
+      - dependency-name: "eslint"
+        versions:
+          - ^9
+    labels:
+      - PR
+    open-pull-requests-limit: 1
+    reviewers:
+      - RaenonX
+    versioning-strategy: increase
