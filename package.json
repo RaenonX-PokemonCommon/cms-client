@@ -62,7 +62,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-swc": "^0.3.1",
     "@rollup/plugin-typescript": "^11.1.6",
-    "@swc/core": "^1.5.25",
+    "@swc/core": "^1.6.1",
     "@types/node": "^20.14.2",
     "@types/qs": "^6.9.15",
     "ajv": "^8.16.0",
@@ -71,7 +71,7 @@
     "rollup": "^4.18.0",
     "rollup-plugin-dts": "^6.1.1",
     "ts-node": "^10.9.2",
-    "type-fest": "^4.20.0",
+    "type-fest": "^4.20.1",
     "typescript": "^5.4.5"
   }
 }
