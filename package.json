@@ -62,8 +62,8 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-swc": "^0.3.1",
     "@rollup/plugin-typescript": "^11.1.6",
-    "@swc/core": "^1.7.0-nightly-20240713.1",
-    "@types/node": "^20.14.10",
+    "@swc/core": "^1.7.0",
+    "@types/node": "^20.14.11",
     "@types/qs": "^6.9.15",
     "ajv": "^8.17.1",
     "cross-env": "^7.0.3",
@@ -71,7 +71,7 @@
     "rollup": "^4.18.1",
     "rollup-plugin-dts": "^6.1.1",
     "ts-node": "^10.9.2",
-    "type-fest": "^4.21.0",
+    "type-fest": "^4.22.0",
     "typescript": "^5.5.3"
   }
 }
