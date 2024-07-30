@@ -14,7 +14,7 @@ import typescript from '@rollup/plugin-typescript';
 import {defineConfig} from 'rollup';
 import dts from 'rollup-plugin-dts';
 
-import packageJson from './package.json' assert { type: 'json' };
+import packageJson from './package.json' with { type: 'json' };
 import {swcConfig} from './swc-config.js';
 
 
