@@ -63,7 +63,7 @@
     "@rollup/plugin-swc": "^0.3.1",
     "@rollup/plugin-typescript": "^11.1.6",
     "@swc/core": "^1.7.3",
-    "@types/node": "^20.14.12",
+    "@types/node": "^22.0.0",
     "@types/qs": "^6.9.15",
     "ajv": "^8.17.1",
     "cross-env": "^7.0.3",
