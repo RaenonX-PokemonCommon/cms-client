@@ -52,9 +52,9 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "axios": "^1.7.2",
+    "axios": "^1.7.3",
     "axios-date-transformer": "^1.0.3",
-    "qs": "^6.12.3"
+    "qs": "^6.13.0"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^5.1.0",
@@ -62,13 +62,13 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-swc": "^0.3.1",
     "@rollup/plugin-typescript": "^11.1.6",
-    "@swc/core": "^1.7.3",
-    "@types/node": "^22.0.0",
+    "@swc/core": "^1.7.6",
+    "@types/node": "^22.1.0",
     "@types/qs": "^6.9.15",
     "ajv": "^8.17.1",
     "cross-env": "^7.0.3",
     "rimraf": "^6.0.1",
-    "rollup": "^4.19.1",
+    "rollup": "^4.20.0",
     "rollup-plugin-dts": "^6.1.1",
     "ts-node": "^10.9.2",
     "type-fest": "^4.23.0",
