@@ -1,11 +1,11 @@
-# pokemon-sleep-cms-client
+# cms-client
 
 Disconnected fork of https://github.com/kmariappan/strapi-client-js. JS/TS client for Strapi Rest API.
 
 ## Installation
 
 ```bash
-yarn add @raenonx-pokemon-sleep/pokemon-sleep-cms-client
+yarn add @raenonx-pokemon/cms-client
 yarn install
 ```
 
@@ -17,7 +17,7 @@ This package uses [axios](https://axios-http.com/) as a http client and [qs](htt
 
 ```ts
 // Typescript
-import {createClient, StrapiClientOptions} from '@raenonx-pokemon-sleep/pokemon-sleep-cms-client';
+import {createClient, StrapiClientOptions} from '@raenonx-pokemon/cms-client';
 
 const options: StrapiClientOptions = {
   url: 'http://localhost:1337/api',
@@ -35,7 +35,7 @@ const strapiClient = createClient(options);
 ## Get
 
 ```js
-import {createClient} from '@raenonx-pokemon-sleep/pokemon-sleep-cms-client';
+import {createClient} from '@raenonx-pokemon/cms-client';
 
 const strapiClient = createClient({url: 'http://localhost:1337/api'});
 

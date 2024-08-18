@@ -1,5 +1,5 @@
 {
-  "name": "@raenonx-pokemon-sleep/pokemon-sleep-cms-client",
+  "name": "@raenonx-pokemon/cms-client",
   "description": "JS / TS client for Strapi Rest API",
   "packageManager": "yarn@4.3.1",
   "version": "1.0.0",
@@ -7,7 +7,7 @@
   "author": "Karthikeyan Mariappan",
   "repository": {
     "type": "git",
-    "url": "https://github.com/RaenonX-PokemonSleep/pokemon-sleep-cms-client.git"
+    "url": "https://github.com/RaenonX-PokemonCommon/cms-client"
   },
   "contributors": [
     {
