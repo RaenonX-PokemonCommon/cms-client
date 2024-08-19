@@ -52,7 +52,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "axios": "^1.7.3",
+    "axios": "^1.7.4",
     "axios-date-transformer": "^1.0.3",
     "qs": "^6.13.0"
   },
@@ -62,16 +62,16 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-swc": "^0.3.1",
     "@rollup/plugin-typescript": "^11.1.6",
-    "@swc/core": "^1.7.10",
-    "@types/node": "^22.2.0",
+    "@swc/core": "^1.7.14",
+    "@types/node": "^22.4.1",
     "@types/qs": "^6.9.15",
     "ajv": "^8.17.1",
     "cross-env": "^7.0.3",
     "rimraf": "^6.0.1",
-    "rollup": "^4.20.0",
+    "rollup": "^4.21.0",
     "rollup-plugin-dts": "^6.1.1",
     "ts-node": "^10.9.2",
-    "type-fest": "^4.24.0",
+    "type-fest": "^4.25.0",
     "typescript": "^5.5.4"
   }
 }
