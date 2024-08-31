@@ -35,10 +35,6 @@ updates:
           - minor
           - patch
     ignore:
-      # `pixi.js` calls, especially `pixi-spine` only support `pixi` v7.
-      - dependency-name: "pixi.js"
-        update-types:
-          - "version-update:semver-major"
       # `eslint` v9 not supported by next.js yet - wait for the support first to remove this
       - dependency-name: "eslint"
         versions:
