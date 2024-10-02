@@ -28,21 +28,19 @@ export class StrapiClient {
     contentName === 'users' ? (this.#isNotUserContent = false) : (this.#isNotUserContent = true);
     const url = `${this.#options.url}/${contentName}`;
     return new StrapiQueryBuilder<T>(url, this.#httpClient, this.#isNotUserContent, this.#normalizeData, this.#debug);
-  }
+  };
 
-  readonly getApiUrl = (): string => {
-    return this.#options.url;
-  }
+  readonly getApiUrl = (): string => this.#options.url;
 
   readonly setToken = (token: string): void => {
     this.#httpClient.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  }
+  };
 
   readonly removeToken = (): void => {
     delete this.#httpClient.defaults.headers.common['Authorization'];
-  }
+  };
 
-  readonly #initStrapiAuthClient = (axiosInstance: AxiosInstance) => {
-    return new StrapiAuthClient(axiosInstance, this.#options);
-  }
+  readonly #initStrapiAuthClient = (
+    axiosInstance: AxiosInstance,
+  ) => new StrapiAuthClient(axiosInstance, this.#options);
 }

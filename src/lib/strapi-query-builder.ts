@@ -11,6 +11,7 @@ type PostValuesType<T> = {
 };
 
 export class StrapiQueryBuilder<T> extends StrapiClientHelper<T> {
+  url: string;
   readonly #httpClient: AxiosInstance;
   readonly #isNotUserContent: boolean;
   protected normalizeData: boolean;
@@ -79,22 +80,22 @@ export class StrapiQueryBuilder<T> extends StrapiClientHelper<T> {
       this.#isNotUserContent,
       this.#isSingle,
     );
-  }
+  };
 
-  readonly create = async (values: T): Promise<StrapiApiResponse<T>> => {
-    return new Promise<StrapiApiResponse<T>>((resolve) => {
-      this.#httpClient
-        .post<StrapiApiResponse<T>>(this.url, this.#handleValues(values))
-        .then((res) => {
-          resolve(this.normalizeData ? this.returnDataHandler(res.data) : res.data);
-        })
-        .catch((err) => {
-          if (err) {
-            resolve(this.returnErrorHandler(err));
-          }
-        });
-    });
-  }
+  readonly create = async (
+    values: T,
+  ): Promise<StrapiApiResponse<T>> => new Promise<StrapiApiResponse<T>>((resolve) => {
+    this.#httpClient
+      .post<StrapiApiResponse<T>>(this.url, this.#handleValues(values))
+      .then((res) => {
+        resolve(this.normalizeData ? this.returnDataHandler(res.data) : res.data);
+      })
+      .catch((err) => {
+        if (err) {
+          resolve(this.returnErrorHandler(err));
+        }
+      });
+  });
 
   readonly createMany = async (values: T[]): Promise<{success: true}> => {
     await Promise.all(
@@ -110,7 +111,7 @@ export class StrapiQueryBuilder<T> extends StrapiClientHelper<T> {
     return Promise.resolve({
       success: true,
     });
-  }
+  };
 
   readonly update = async (id: string | number, values: Partial<T>): Promise<StrapiApiResponse<T>> => {
     const url = `${this.url}/${id}`;
@@ -127,7 +128,7 @@ export class StrapiQueryBuilder<T> extends StrapiClientHelper<T> {
           }
         });
     });
-  }
+  };
 
   readonly updateMany = async (values: {id: string | number; variables: Partial<T>}[]): Promise<{success: true}> => {
     await Promise.all(
@@ -145,7 +146,7 @@ export class StrapiQueryBuilder<T> extends StrapiClientHelper<T> {
     return Promise.resolve({
       success: true,
     });
-  }
+  };
 
   readonly deleteOne = async (id: string | number): Promise<StrapiApiResponse<T>> => {
     const url = `${this.url}/${id}`;
@@ -161,7 +162,7 @@ export class StrapiQueryBuilder<T> extends StrapiClientHelper<T> {
           }
         });
     });
-  }
+  };
 
   readonly deleteMany = async (ids: string[] | number[]): Promise<{success: true}> => {
     await Promise.all(
@@ -174,7 +175,7 @@ export class StrapiQueryBuilder<T> extends StrapiClientHelper<T> {
     return Promise.resolve({
       success: true,
     });
-  }
+  };
 
   readonly #handleValues = (values: Partial<T>): Partial<T> | PostValuesType<Partial<T>> => {
     if (this.#isNotUserContent) {
@@ -182,5 +183,5 @@ export class StrapiQueryBuilder<T> extends StrapiClientHelper<T> {
     }
 
     return values;
-  }
+  };
 }
