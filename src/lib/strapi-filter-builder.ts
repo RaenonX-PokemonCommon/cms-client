@@ -73,7 +73,7 @@ export class StrapiFilterBuilder<T> extends StrapiClientHelper<T> {
       value,
     });
     return this;
-  }
+  };
 
   readonly notEqualTo = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string | number) => {
     this.url = this.generateFilter({
@@ -82,7 +82,7 @@ export class StrapiFilterBuilder<T> extends StrapiClientHelper<T> {
       value,
     });
     return this;
-  }
+  };
 
   readonly lessThan = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string | number) => {
     this.url = this.generateFilter({
@@ -91,7 +91,7 @@ export class StrapiFilterBuilder<T> extends StrapiClientHelper<T> {
       value,
     });
     return this;
-  }
+  };
 
   readonly lessThanOrEqualTo = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string | number) => {
     this.url = this.generateFilter({
@@ -100,180 +100,184 @@ export class StrapiFilterBuilder<T> extends StrapiClientHelper<T> {
       value,
     });
     return this;
-  }
+  };
 
   readonly greaterThan = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string | number) => {
-      this.url = this.generateFilter({
-        field,
-        operator: 'gt',
-        value,
-      });
-      return this;
-    }
+    this.url = this.generateFilter({
+      field,
+      operator: 'gt',
+      value,
+    });
+    return this;
+  };
 
   readonly greaterThanOrEqualTo = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string | number) => {
-      this.url = this.generateFilter({
-        field,
-        operator: 'gte',
-        value,
-      });
-      return this;
-    }
+    this.url = this.generateFilter({
+      field,
+      operator: 'gte',
+      value,
+    });
+    return this;
+  };
 
   readonly containsCaseSensitive = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string) => {
-      this.url = this.generateFilter({
-        field,
-        operator: 'contains',
-        value,
-      });
-      return this;
-    }
+    this.url = this.generateFilter({
+      field,
+      operator: 'contains',
+      value,
+    });
+    return this;
+  };
 
   readonly notContainsCaseSensitive = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string) => {
-      this.url = this.generateFilter({
-        field,
-        operator: 'notContains',
-        value,
-      });
-      return this;
-    }
+    this.url = this.generateFilter({
+      field,
+      operator: 'notContains',
+      value,
+    });
+    return this;
+  };
 
   readonly contains = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string) => {
-      this.url = this.generateFilter({
-        field,
-        operator: 'containsi',
-        value,
-      });
-      return this;
-    }
+    this.url = this.generateFilter({
+      field,
+      operator: 'containsi',
+      value,
+    });
+    return this;
+  };
 
-  readonly  notContains = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string) => {
-      this.url = this.generateFilter({
-        field,
-        operator: 'notContainsi',
-        value,
-      });
-      return this;
-    }
+  readonly notContains = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string) => {
+    this.url = this.generateFilter({
+      field,
+      operator: 'notContainsi',
+      value,
+    });
+    return this;
+  };
 
   readonly isNull = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string) => {
-      this.url = this.generateFilter({
-        field,
-        operator: 'null',
-        value,
-      });
-      return this;
-    }
+    this.url = this.generateFilter({
+      field,
+      operator: 'null',
+      value,
+    });
+    return this;
+  };
 
   readonly isNotNull = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string) => {
-      this.url = this.generateFilter({
-        field,
-        operator: 'notNull',
-        value,
-      });
-      return this;
-    }
+    this.url = this.generateFilter({
+      field,
+      operator: 'notNull',
+      value,
+    });
+    return this;
+  };
 
   readonly between = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: Array<any>) => {
-      this.url = this.generateFilter({
-        field,
-        operator: 'between',
-        value,
-      });
-      return this;
-    }
+    this.url = this.generateFilter({
+      field,
+      operator: 'between',
+      value,
+    });
+    return this;
+  };
 
   readonly startsWith = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string) => {
-      this.url = this.generateFilter({
-        field,
-        operator: 'startsWith',
-        value,
-      });
-      return this;
-    }
+    this.url = this.generateFilter({
+      field,
+      operator: 'startsWith',
+      value,
+    });
+    return this;
+  };
 
   readonly endsWith = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string) => {
-      this.url = this.generateFilter({
-        field,
-        operator: 'endsWith',
-        value,
-      });
-      return this;
-    }
+    this.url = this.generateFilter({
+      field,
+      operator: 'endsWith',
+      value,
+    });
+    return this;
+  };
 
   readonly in = (field: Extract<keyof InferedTypeFromArray<T>, string>, value: string[]) => {
-      this.url = this.generateFilter({
-        field,
-        operator: 'in',
-        value,
-      });
-      return this;
-    }
+    this.url = this.generateFilter({
+      field,
+      operator: 'in',
+      value,
+    });
+    return this;
+  };
 
-  readonly filterDeep = (path: string, operator: RelationalFilterOperators, value: string | number | Array<string | number>) => {
-      this.url = this.generateRelationsFilter({path: stringToArray(path), operator, value});
-      return this;
-    }
+  readonly filterDeep = (
+    path: string,
+    operator: RelationalFilterOperators,
+    value: string | number | Array<string | number>,
+  ) => {
+    this.url = this.generateRelationsFilter({path: stringToArray(path), operator, value});
+    return this;
+  };
 
   readonly sortBy = (sort: CrudSorting<InferedTypeFromArray<T>>) => {
-      this.url = this.generateSort(sort);
-      return this;
-    }
+    this.url = this.generateSort(sort);
+    return this;
+  };
 
   readonly paginate = (page: number, pageSize: number) => {
-      const paginateRawQuery = `pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
-      this.url = this.handleUrl(generateQueryFromRawString(paginateRawQuery));
-      return this;
-    }
+    const paginateRawQuery = `pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
+    this.url = this.handleUrl(generateQueryFromRawString(paginateRawQuery));
+    return this;
+  };
 
   readonly paginateByOffset = (start: number, limit: number) => {
-      const paginateRawQuery = `pagination[start]=${start}&pagination[limit]=${limit}`;
-      this.url = this.handleUrl(generateQueryFromRawString(paginateRawQuery));
-      return this;
-    }
+    const paginateRawQuery = `pagination[start]=${start}&pagination[limit]=${limit}`;
+    this.url = this.handleUrl(generateQueryFromRawString(paginateRawQuery));
+    return this;
+  };
 
   readonly withDraft = () => {
-      this.url = this.handleUrl(`publicationState=${PublicationState.PREVIEW}`);
-      return this;
-    }
+    this.url = this.handleUrl(`publicationState=${PublicationState.PREVIEW}`);
+    return this;
+  };
 
   readonly onlyDraft = () => {
-      this.url = this.handleUrl(`publicationState=${PublicationState.PREVIEW}&filters[publishedAt][$null]=true`);
-      return this;
-    }
+    this.url = this.handleUrl(`publicationState=${PublicationState.PREVIEW}&filters[publishedAt][$null]=true`);
+    return this;
+  };
 
   readonly setLocale = (localeCode: string) => {
-      this.url = this.handleUrl(`locale=${localeCode}`);
-      return this;
-    }
+    this.url = this.handleUrl(`locale=${localeCode}`);
+    return this;
+  };
 
   readonly populate = () => {
-      const obj = {
-        populate: '*',
-      };
-      this.url = this.handleUrl(generateQueryString(obj));
-      return this;
-    }
+    const obj = {
+      populate: '*',
+    };
+    this.url = this.handleUrl(generateQueryString(obj));
+    return this;
+  };
 
   readonly populateWith = <Q>(
-      relation: T extends Array<infer U> ? keyof U : keyof T,
-      selectFields?: Array<keyof Q>,
-      level2?: boolean,
-    ) => {
-      const obj = {
-        populate: {
-          [relation]: {
-            fields: selectFields,
-            populate: level2 ? '*' : null,
-          },
+    relation: T extends Array<infer U> ? keyof U : keyof T,
+    selectFields?: Array<keyof Q>,
+    level2?: boolean,
+  ) => {
+    const obj = {
+      populate: {
+        [relation]: {
+          fields: selectFields,
+          populate: level2 ? '*' : null,
         },
-      };
-      this.url = this.handleUrl(generateQueryString(obj));
-      return this;
-    }
+      },
+    };
+    this.url = this.handleUrl(generateQueryString(obj));
+    return this;
+  };
 
   readonly populateDeep = (populateDeepValues: PopulateDeepOptions[]) => {
-      this.url = this.generatePopulateDeep(populateDeepValues);
-      return this;
-    }
+    this.url = this.generatePopulateDeep(populateDeepValues);
+    return this;
+  };
 }

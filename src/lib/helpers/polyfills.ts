@@ -6,17 +6,17 @@
 export function polyfillGlobalThis() {
   if (typeof globalThis === 'object') return;
   try {
-    Object.defineProperty(Object.prototype, '__magic__', {
-      get: function() {
-        return this;
-      },
-      configurable: true,
-    });
-    __magic__.globalThis = __magic__;
-    delete Object.prototype.__magic__;
-  } catch (e) {
+    // Check if globalThis is available in different environments
     if (typeof self !== 'undefined') {
       self.globalThis = self;
+    } else if (typeof window !== 'undefined') {
+      window.globalThis = window;
+    } else if (typeof global !== 'undefined') {
+      global.globalThis = global;
+    } else {
+      throw new Error('Unable to polyfill globalThis');
     }
+  } catch (e) {
+    console.error('Failed to polyfill globalThis', {cause: e});
   }
 }

@@ -6,6 +6,9 @@
  *   external?: (string | RegExp)[] | string | RegExp;
  * }} FileEntry
  */
+import fs from 'fs';
+import path from 'path';
+
 import alias from '@rollup/plugin-alias';
 import json from '@rollup/plugin-json';
 import nodeResolve from '@rollup/plugin-node-resolve';
@@ -14,8 +17,20 @@ import typescript from '@rollup/plugin-typescript';
 import {defineConfig} from 'rollup';
 import dts from 'rollup-plugin-dts';
 
-import packageJson from './package.json' with { type: 'json' };
 import {swcConfig} from './swc-config.js';
+
+
+let packageJson = {};
+const packageJsonPath = path.resolve('./package.json');
+if (fs.existsSync(packageJsonPath)) {
+  try {
+    packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
+  } catch (e) {
+    throw new Error(`Failed to parse package.json at ${packageJsonPath}`, {cause: e});
+  }
+} else {
+  throw new Error(`package.json not found at ${packageJsonPath}`);
+}
 
 
 const isDev = process.env.NODE_ENV !== 'production';

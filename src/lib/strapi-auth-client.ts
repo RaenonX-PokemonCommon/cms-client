@@ -44,74 +44,72 @@ export class StrapiAuthClient extends StrapiClientHelper<AuthData> {
     this.localStorage = settings.localStorage || globalThis.localStorage;
   }
 
-  readonly signIn = (credentials: SignInCredentials): Promise<StrapiApiResponse<AuthData>> => {
-    return new Promise<StrapiApiResponse<AuthData>>((resolve) => {
-      this.#httpClient
-        .post<AuthData>(endPoints.auth.signIn, {
-          identifier: credentials.email,
-          password: credentials.password,
-        })
-        .then((res) => {
-          this.#saveSession({
-            access_token: res.data.jwt,
-            user: res.data.user,
-          });
-          resolve({
-            data: res.data,
-          });
-        })
-        .catch((err) => {
+  readonly signIn = (
+    credentials: SignInCredentials,
+  ): Promise<StrapiApiResponse<AuthData>> => new Promise<StrapiApiResponse<AuthData>>((resolve) => {
+    this.#httpClient
+      .post<AuthData>(endPoints.auth.signIn, {
+        identifier: credentials.email,
+        password: credentials.password,
+      })
+      .then((res) => {
+        this.#saveSession({
+          access_token: res.data.jwt,
+          user: res.data.user,
+        });
+        resolve({
+          data: res.data,
+        });
+      })
+      .catch((err) => {
+        if (err) {
+          return resolve(this.returnErrorHandler(err));
+        }
+      });
+  });
+
+  /**
+   * Sign up a new user
+   * @param {SignUpCredentials} credentials object contains username, email and password
+   * @return {StrapiApiResponse<AuthData>} data and error objects, data object contains jwt, user and provider
+   */
+  readonly signUp = async (
+    credentials: SignUpCredentials,
+  ): Promise<StrapiApiResponse<AuthData>> => new Promise<StrapiApiResponse<AuthData>>((resolve) => {
+    this.#httpClient
+      .post<AuthData>(endPoints.auth.signUp, credentials)
+      .then((res) => {
+        resolve({data: res.data});
+        this.#saveSession({
+          access_token: res.data.jwt,
+          user: res.data.user,
+        });
+      })
+      .catch((err) => {
+        if (err) {
           if (err) {
             return resolve(this.returnErrorHandler(err));
           }
-        });
-    });
-  }
+        }
+      });
+  });
 
-  /**
-   *
-   * @param credentials object contains username, email and password
-   * @returns data and error objects, data object contains jwt, user and provider
-   */
-  readonly signUp = async (credentials: SignUpCredentials): Promise<StrapiApiResponse<AuthData>> => {
-    return new Promise<StrapiApiResponse<AuthData>>((resolve) => {
-      this.#httpClient
-        .post<AuthData>(endPoints.auth.signUp, credentials)
-        .then((res) => {
-          resolve({data: res.data});
-          this.#saveSession({
-            access_token: res.data.jwt,
-            user: res.data.user,
+  readonly getMe = async (): Promise<StrapiApiResponse<User>> => new Promise<StrapiApiResponse<User>>((resolve) => {
+    this.#httpClient
+      .get<User>(endPoints.auth.getMe)
+      .then((res) => {
+        resolve({data: res.data});
+      })
+      .catch((err: any) => {
+        if (err) {
+          const error = err.response.data.error as StrapiApiError;
+          return resolve({
+            data: null,
+            error,
           });
-        })
-        .catch((err) => {
-          if (err) {
-            if (err) {
-              return resolve(this.returnErrorHandler(err));
-            }
-          }
-        });
-    });
-  }
-
-  readonly getMe = async (): Promise<StrapiApiResponse<User>> => {
-    return new Promise<StrapiApiResponse<User>>((resolve) => {
-      this.#httpClient
-        .get<User>(endPoints.auth.getMe)
-        .then((res) => {
-          resolve({data: res.data});
-        })
-        .catch((err: any) => {
-          if (err) {
-            const error = err.response.data.error as StrapiApiError;
-            return resolve({
-              data: null,
-              error,
-            });
-          }
-        });
-    });
-  }
+        }
+      });
+  });
 
   /**
    * Inside a browser context, `signOut()` will remove the logged-in user from the browser session
@@ -127,7 +125,7 @@ export class StrapiAuthClient extends StrapiClientHelper<AuthData> {
       //  if (error) return { error };
     }
     return {error: null};
-  }
+  };
 
   readonly #saveSession = (session: Session) => {
     this.currentSession = session;
@@ -135,17 +133,17 @@ export class StrapiAuthClient extends StrapiClientHelper<AuthData> {
     if (this.persistSession) {
       this.#persistSession(this.currentSession);
     }
-  }
+  };
 
   readonly #removeSession = async () => {
     this.currentSession = null;
     this.currentUser = null;
     //  if (this.refreshTokenTimer) clearTimeout(this.refreshTokenTimer)
     isBrowser() && (await this.localStorage.removeItem(STORAGE_KEY));
-  }
+  };
 
-   readonly #persistSession = (currentSession: Session) => {
+  readonly #persistSession = (currentSession: Session) => {
     const data = {currentSession, expiresAt: currentSession.expires_at};
     isBrowser() && this.localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  }
+  };
 }

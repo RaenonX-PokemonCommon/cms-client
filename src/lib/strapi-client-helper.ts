@@ -49,7 +49,7 @@ export abstract class StrapiClientHelper<T> {
     }
 
     return data;
-  }
+  };
 
   protected readonly returnDataHandler = (data: StrapiApiResponse<T>): StrapiApiResponse<T> => {
     return {
@@ -57,7 +57,7 @@ export abstract class StrapiClientHelper<T> {
       meta: data.meta,
       error: data.error,
     };
-  }
+  };
 
   protected readonly returnErrorHandler = (err: any): StrapiApiResponse<T> => {
     let error: StrapiApiError = {
@@ -85,7 +85,7 @@ export abstract class StrapiClientHelper<T> {
       data: null,
       error,
     };
-  }
+  };
 
   protected readonly generateFilter = ({field, operator, value}: CrudFilter<InferedTypeFromArray<T>>): string => {
     let rawQuery = '';
@@ -98,7 +98,7 @@ export abstract class StrapiClientHelper<T> {
     }
     const parsedQuery = parse(rawQuery);
     return this.handleUrl(generateQueryString(parsedQuery));
-  }
+  };
 
   protected readonly generateRelationsFilter = (deepFilter: DeepFilterType): string => {
     let rawQuery = `filters`;
@@ -125,7 +125,7 @@ export abstract class StrapiClientHelper<T> {
 
     const parsedQuery = parse(rawQuery);
     return this.handleUrl(generateQueryString(parsedQuery));
-  }
+  };
 
   protected readonly generateSort = <T>(_sort: CrudSorting<T>): string => {
     const sort: string[] = [];
@@ -137,7 +137,7 @@ export abstract class StrapiClientHelper<T> {
       }
     });
     return this.handleUrl(generateQueryString({sort}));
-  }
+  };
 
   protected readonly handleUrl = (query: string): string => {
     const lastChar = this.url.charAt(this.url.length - 1);
@@ -147,7 +147,7 @@ export abstract class StrapiClientHelper<T> {
     } else {
       return `${this.url}&${query}`;
     }
-  }
+  };
 
   protected readonly generatePopulateDeep = (options: PopulateDeepOptions[]): string => {
     let urlString = '';
@@ -191,5 +191,5 @@ export abstract class StrapiClientHelper<T> {
     });
 
     return this.handleUrl(stringify(parse(urlString)));
-  }
+  };
 }
