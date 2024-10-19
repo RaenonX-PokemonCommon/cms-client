@@ -2,7 +2,7 @@ import {stringify, parse} from 'qs';
 
 
 export function generateQueryString(obj: object): string {
-  return stringify(obj, {encodeValuesOnly: true});
+  return stringify(obj, {encodeValuesOnly: true, addQueryPrefix: true});
 }
 
 export function generateQueryFromRawString(rawQuery: string): string {

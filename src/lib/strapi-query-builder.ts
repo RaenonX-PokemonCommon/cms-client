@@ -35,15 +35,18 @@ export class StrapiQueryBuilder<T> extends StrapiClientHelper<T> {
   }
 
   select(): StrapiFilterBuilder<T>;
-  select(fields?: Array<keyof T>): StrapiFilterBuilder<T[]>;
-  select(fields?: Array<keyof T> | string): StrapiFilterBuilder<T> | StrapiFilterBuilder<T[]> {
+  select(fields?: []): StrapiFilterBuilder<T[]>;
+  select(fields?: Array<{[key in keyof T]: string}> | string): StrapiFilterBuilder<T> | StrapiFilterBuilder<T[]> {
+    if (Array.isArray(fields)) {
+      this.#isSingle = false;
+    }
+
     if (fields) {
       const query = {
         fields,
       };
       const queryString = generateQueryString(query);
-      this.url = `${this.url}?${queryString}`;
-      this.#isSingle = false;
+      this.url = `${this.url}${queryString}`;
 
       return new StrapiFilterBuilder<T[]>(
         this.url,
