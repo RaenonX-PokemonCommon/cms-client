@@ -1,6 +1,5 @@
 import {AxiosInstance} from 'axios';
 
-
 import {endPoints, STORAGE_KEY} from './constants';
 import {isBrowser} from './helpers';
 import {polyfillGlobalThis} from './helpers/polyfills';
