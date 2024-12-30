@@ -34,11 +34,6 @@ updates:
           - major
           - minor
           - patch
-    ignore:
-      # `eslint` v9 not supported by next.js yet - wait for the support first to remove this
-      - dependency-name: "eslint"
-        versions:
-          - ^9
     labels:
       - PR
     open-pull-requests-limit: 1
