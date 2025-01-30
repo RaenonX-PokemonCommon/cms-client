@@ -62,7 +62,7 @@
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-swc": "^0.4.0",
     "@rollup/plugin-typescript": "^12.1.2",
-    "@swc/core": "^1.10.11",
+    "@swc/core": "^1.10.12",
     "@types/node": "^22.12.0",
     "@types/qs": "^6.9.18",
     "ajv": "^8.17.1",
