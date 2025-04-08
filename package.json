@@ -62,17 +62,17 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-swc": "^0.4.0",
     "@rollup/plugin-typescript": "^12.1.2",
-    "@swc/core": "^1.11.13",
-    "@types/node": "^22.13.14",
+    "@swc/core": "^1.11.18",
+    "@types/node": "^22.14.0",
     "@types/qs": "^6.9.18",
     "ajv": "^8.17.1",
     "cross-env": "^7.0.3",
     "rimraf": "^6.0.1",
-    "rollup": "^4.38.0",
+    "rollup": "^4.39.0",
     "rollup-plugin-dts": "^6.2.1",
     "ts-node": "^10.9.2",
-    "type-fest": "^4.38.0",
-    "typescript": "^5.8.2"
+    "type-fest": "^4.39.1",
+    "typescript": "^5.8.3"
   },
   "dependenciesNote": {
     "axios": "Fixed to v1.7.7 because v1.7.8 has typing issue"
