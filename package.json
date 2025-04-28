@@ -52,7 +52,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "axios": "^1.8.4",
+    "axios": "1.8.4",
     "axios-date-transformer": "^1.2.1",
     "qs": "^6.14.0"
   },
@@ -62,19 +62,19 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-swc": "^0.4.0",
     "@rollup/plugin-typescript": "^12.1.2",
-    "@swc/core": "^1.11.21",
-    "@types/node": "^22.14.1",
+    "@swc/core": "^1.11.22",
+    "@types/node": "^22.15.2",
     "@types/qs": "^6.9.18",
     "ajv": "^8.17.1",
     "cross-env": "^7.0.3",
     "rimraf": "^6.0.1",
-    "rollup": "^4.40.0",
+    "rollup": "^4.40.1",
     "rollup-plugin-dts": "^6.2.1",
     "ts-node": "^10.9.2",
-    "type-fest": "^4.40.0",
+    "type-fest": "^4.40.1",
     "typescript": "^5.8.3"
   },
   "dependenciesNote": {
-    "axios": "Fixed to v1.7.7 because v1.7.8 has typing issue"
+    "axios": "Fixed to v1.8.4 because v1.9.0 has typing issue"
   }
 }
