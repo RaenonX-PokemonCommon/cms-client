@@ -37,6 +37,4 @@ updates:
     labels:
       - PR
     open-pull-requests-limit: 1
-    reviewers:
-      - RaenonX
     versioning-strategy: increase
