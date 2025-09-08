@@ -3,15 +3,8 @@
 # Dependencies
 node_modules
 /.pnp
-# Non-zero installs
-# > https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
 .pnp.*
 .yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
 
 # Exclude yarn.lock since Dependencies will be locked in pks-ui-core.
 yarn.lock
