@@ -70,7 +70,6 @@
     "rimraf": "^6.0.1",
     "rollup": "^4.52.3",
     "rollup-plugin-dts": "^6.2.3",
-    "ts-node": "^10.9.2",
     "type-fest": "^5.0.1",
     "typescript": "^5.9.2"
   },
