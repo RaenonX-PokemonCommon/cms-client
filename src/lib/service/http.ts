@@ -1,5 +1,6 @@
-import axios, {InternalAxiosRequestConfig, AxiosInstance} from 'axios';
-import {addAxiosDateTransformer} from 'axios-date-transformer';
+import axios, {type AxiosInstance, type AxiosResponse, type InternalAxiosRequestConfig} from 'axios';
+
+import {transformDatesInObject} from './transformDate';
 
 
 export const getAxiosInstance = (url: string, apiToken?: string): AxiosInstance => {
@@ -16,5 +17,17 @@ export const getAxiosInstance = (url: string, apiToken?: string): AxiosInstance 
 
   api.interceptors.request.use(axiosConfig);
 
-  return addAxiosDateTransformer(api);
+  // Add response interceptor for date transformation
+  api.interceptors.response.use(
+    (response: AxiosResponse) => {
+      if (response.data) {
+        response.data = transformDatesInObject(response.data);
+      }
+
+      return response;
+    },
+    (error) => Promise.reject(error),
+  );
+
+  return api;
 };
