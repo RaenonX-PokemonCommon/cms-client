@@ -71,8 +71,5 @@
     "rollup-plugin-dts": "^6.2.3",
     "type-fest": "^5.1.0",
     "typescript": "^5.9.3"
-  },
-  "dependenciesNote": {
-    "axios": "Fixed to v1.8.4 because v1.9.0 has typing issue"
   }
 }
