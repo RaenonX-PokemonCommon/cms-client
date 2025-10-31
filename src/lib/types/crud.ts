@@ -48,6 +48,12 @@ export type DeepFilterType = {
   value: string | number | Array<string | number>,
 };
 
+export type OrFilterCondition = {
+  path: string,
+  operator: RelationalFilterOperators,
+  value: string | number | Array<string | number>,
+};
+
 type DeepChild = {
   key: string,
   fields?: string[],

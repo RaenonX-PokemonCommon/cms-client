@@ -1,5 +1,5 @@
 import {StrapiClient} from './lib/strapi-client';
-import {StrapiClientOptions} from './lib/types/base';
+import {type StrapiClientOptions} from './lib/types/base';
 
 
 const defaultOptions: StrapiClientOptions = {
@@ -21,6 +21,8 @@ export type {
 export type {SignInCredentials, SignUpCredentials} from './lib/types/auth';
 
 export type {StrapiImage} from './lib/types/image';
+
+export type {OrFilterCondition} from './lib/types/crud';
 
 export * from './lib/strapi-query-builder';
 

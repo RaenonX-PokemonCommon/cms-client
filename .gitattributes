@@ -1,6 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-eol=lf
 
-# Ignore all differences in line endings
-*        -crlf
+# Force line ending to LF
+*.ts    eol=lf
+*.js    eol=lf

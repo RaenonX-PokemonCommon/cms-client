@@ -1,8 +1,8 @@
 import {parse, stringify} from 'qs';
 
 import {generateQueryString, stringToArray} from './helpers';
-import {InferedTypeFromArray, StrapiApiError, StrapiApiResponse} from './types/base';
-import {CrudFilter, CrudSorting, DeepFilterType, PopulateDeepOptions} from './types/crud';
+import {type InferedTypeFromArray, type StrapiApiError, type StrapiApiResponse} from './types/base';
+import {type CrudFilter, type CrudSorting, type DeepFilterType, type OrFilterCondition, type PopulateDeepOptions} from './types/crud';
 
 
 export abstract class StrapiClientHelper<T> {
@@ -122,6 +122,28 @@ export abstract class StrapiClientHelper<T> {
     } else {
       rawQuery += `[$${operator}]=${value}`;
     }
+
+    const parsedQuery = parse(rawQuery);
+    return this.handleUrl(generateQueryString(parsedQuery));
+  };
+
+  protected readonly generateOrFilter = (conditions: OrFilterCondition[]): string => {
+    let rawQuery = '';
+    conditions.forEach((condition, index) => {
+      const {path, operator, value} = condition;
+      const fields = stringToArray(path);
+      let filterPath = `filters[$or][${index}]`;
+
+      fields.forEach((field) => {
+        filterPath += `[${field}]`;
+      });
+
+      const encodedValue = encodeURIComponent(String(value));
+      if (index > 0) {
+        rawQuery += '&';
+      }
+      rawQuery += `${filterPath}[$${operator}]=${encodedValue}`;
+    });
 
     const parsedQuery = parse(rawQuery);
     return this.handleUrl(generateQueryString(parsedQuery));

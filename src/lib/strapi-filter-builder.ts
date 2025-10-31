@@ -1,9 +1,9 @@
-import {AxiosInstance} from 'axios';
+import {type AxiosInstance} from 'axios';
 
 import {generateQueryFromRawString, generateQueryString, stringToArray} from './helpers';
 import {StrapiClientHelper} from './strapi-client-helper';
-import {InferedTypeFromArray, PublicationState, StrapiApiResponse} from './types/base';
-import {CrudSorting, PopulateDeepOptions, RelationalFilterOperators} from './types/crud';
+import {type InferedTypeFromArray, PublicationState, type StrapiApiResponse} from './types/base';
+import {type CrudSorting, type OrFilterCondition, type PopulateDeepOptions, type RelationalFilterOperators} from './types/crud';
 
 
 export class StrapiFilterBuilder<T> extends StrapiClientHelper<T> {
@@ -216,6 +216,11 @@ export class StrapiFilterBuilder<T> extends StrapiClientHelper<T> {
     value: string | number | Array<string | number>,
   ) => {
     this.url = this.generateRelationsFilter({path: stringToArray(path), operator, value});
+    return this;
+  };
+
+  readonly filterOr = (conditions: OrFilterCondition[]) => {
+    this.url = this.generateOrFilter(conditions);
     return this;
   };
 
