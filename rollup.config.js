@@ -95,6 +95,7 @@ for (const {input, output, external = [], plugins} of files) {
           outDir: 'dist',
           declaration: true,
           declarationDir: 'dist/dts',
+          rootDir: 'src',
         }),
         swc({
           swc: {
