@@ -58,7 +58,7 @@
     "@rollup/plugin-swc": "^0.4.1",
     "@rollup/plugin-typescript": "^12.3.0",
     "@swc/core": "^1.15.40",
-    "axios": "^1.17.0",
+    "axios": "1.16.1",
     "cross-env": "^10.1.0",
     "qs": "^6.15.2",
     "rimraf": "^6.1.3",
