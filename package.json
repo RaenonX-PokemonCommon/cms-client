@@ -57,7 +57,7 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-swc": "^0.4.1",
     "@rollup/plugin-typescript": "^12.3.0",
-    "@swc/core": "^1.15.40",
+    "@swc/core": "^1.15.43",
     "axios": "1.16.1",
     "cross-env": "^10.1.0",
     "qs": "^6.15.2",
@@ -67,7 +67,7 @@
     "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "@types/node": "^24.13.0",
+    "@types/node": "^26.0.0",
     "@types/qs": "^6.15.1"
   }
 }
