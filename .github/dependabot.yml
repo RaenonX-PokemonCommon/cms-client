@@ -34,11 +34,6 @@ updates:
           - major
           - minor
           - patch
-    ignore:
-      # Quarantined
-      - dependency-name: axios
-        versions:
-          - ^1.7.0
     labels:
       - PR
     open-pull-requests-limit: 1
